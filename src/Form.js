@@ -3,8 +3,8 @@ import curriculum from './curriculum.json'
 
 const Form = () => {
     const [date,setDate] = useState("");
-    const [day,setDay] = useState("");
-    const [classTime,setClassTime] = useState("");
+    const [day,setDay] = useState("Mon");
+    const [classTime,setClassTime] = useState("2");
     const [grade,setGrade] = useState("");
 
     const changeDate = (e) => setDate(e.target.value);
@@ -36,7 +36,7 @@ const Form = () => {
             <option value={4}>4年次</option>
         </select>
         <p>{date},{day},{classTime},{grade}</p>
-        {curriculum[1][classTime][day]?<p>{curriculum[1][classTime][day]}</p>:<p></p>}
+        {curriculum[1][day][classTime]?<p>{curriculum[1][day][classTime]}</p>:<p></p>}
     </div>
   )
 }
