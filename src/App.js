@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  useState
+} from "react";
 
 function App() {
+  const [userInf, setUserInf] = useState({
+    "stNum": "",
+    "stName": "",
+  })
+
+  const [absentForm, setAbsentForm] = useState({
+    "date": "",  //日にち
+    "day": "",  //曜日
+    "grade":"", //学年
+    "class":"", //何限？？？？？
+    "subject": "",
+    "reason": "",
+    "isAttend": "",
+    "file": "",
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      
     </div>
+
   );
 }
 
