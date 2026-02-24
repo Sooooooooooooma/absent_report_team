@@ -1,7 +1,7 @@
 import {
   useState
 } from "react";
-import Complite from "./components/Complite.js"
+import Complete from "./components/Complete.js"
 import Form from "./components/Form.js"
 import header from "./components/header.js"
 import Login from "./components/login.js"
@@ -31,7 +31,7 @@ function App() {
         <Route path="/Login" element={<Login/>}/>
         <Route path="/Form" element={<Form/>}/>
         <Route path="/Preview" element={<Preview/>}/>
-        <Route path="/Conplite" element={<Complite/>}/>
+        <Route path="/Conplite" element={<Complete/>}/>
         <Route path="/Reback" element={<Reback/>}/>
       </Routes>
     </BrowserRouter>
