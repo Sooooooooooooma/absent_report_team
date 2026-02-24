@@ -34,9 +34,9 @@ const Form = () => {
   return (
     <>
         <div>
-            <input type='date' onChange={changeDate} value={date} max={nowDay} />
+            <input className='date' type='date' onChange={changeDate} value={date} max={nowDay} />
             <p>{day[1]}</p>
-            <select onChange={changeClassTime}>
+            <select className='class_select' onChange={changeClassTime}>
                 <option value={1}>1限</option>
                 <option value={2}>2限</option>
                 <option value={3}>3限</option>
@@ -44,7 +44,7 @@ const Form = () => {
                 <option value={5}>5限</option>
                 <option value={6}>6限</option>
             </select>
-            <select onChange={changeGrade}>
+            <select  className="grade_select" onChange={changeGrade}>
                 <option value={1}>1年次</option>
                 <option value={2}>2年次</option>
                 <option value={3}>3年次</option>
@@ -53,7 +53,7 @@ const Form = () => {
             {curriculum[grade][day[0]][classTime][0] !== ""?<p>{curriculum[grade][day[0]][classTime]}</p>:<p>該当する授業はありません。</p>}
         </div>
         <div>
-            <select onChange={changeReason}>
+            <select className='reason' onChange={changeReason}>
                 <option>病気</option>
                 <option>交通機関の遅延</option>
                 <option>忌引き</option>
@@ -61,16 +61,16 @@ const Form = () => {
             </select>
             {reason === "交通機関の遅延" ? 
             <>
-                <label>
+                <label className='absent'>
                     欠席
                     <input type='radio' name='isAttend'/>
                 </label>
-                <label>
+                <label className='late'>
                     遅刻
-                    <input type='radio' name='isAttend'/>
+                    <input className='radio' type='radio' name='isAttend'/>
                 </label>
             </>:!(reason === "病気" || reason === "忌引き") && 
-            <input type='text'/>
+            <input className='other' type='text'/>
             }
         </div>
     </>

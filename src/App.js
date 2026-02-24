@@ -6,7 +6,7 @@ import Form from "./components/Form.js"
 import header from "./components/header.js"
 import Login from "./components/login.js"
 import Preview from "./components/preview.js"
-import Reback from "./components/reback.js"
+import Reback from "./components/rebeck.js"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {

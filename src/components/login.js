@@ -1,11 +1,17 @@
-import { useState } from "react";
-import "./header"
+import React from 'react'
+import { useState } from 'react'
+import Header from './header'
 import "./login.css"
 
-return(
+function login() {
+  return (
     <div>
-        <input className="input"></input>
-        <input className="name"></input>
-        <button className="lgbt">ログイン</button>
+        <Header/>
+        <input className='input'></input>
+        <input className='name'></input>
+        <button className='lgbt'>ログイン</button>
     </div>
-)
+  )
+}
+
+export default login

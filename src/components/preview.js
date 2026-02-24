@@ -1,9 +1,15 @@
 import React from 'react'
-// import "./preveiw.css"
+import "./preview.css"
+import Header from "./header"
 
 function preview() {
   return (
-    <div>preview</div>
+    <>
+    <Header/>
+    <div>
+        <button className='submit'>送信</button>
+    </div>
+    </>
   )
 }
 
