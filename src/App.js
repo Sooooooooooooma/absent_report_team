@@ -29,7 +29,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/Login" element={<Login/>}/>
-        <Route path="/From" element={<Form/>}/>
+        <Route path="/Form" element={<Form/>}/>
         <Route path="/Preview" element={<Preview/>}/>
         <Route path="/Conplite" element={<Complite/>}/>
         <Route path="/Reback" element={<Reback/>}/>

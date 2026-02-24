@@ -1,5 +1,5 @@
 import React from 'react'
-import "./preveiw.css"
+// import "./preveiw.css"
 
 function preview() {
   return (

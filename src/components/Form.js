@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import curriculum from './curriculum.json'
+import curriculum from '../curriculum.json'
 
 const Form = () => {
     const nowDay = new Date().getFullYear()+"-"+String(new Date().getMonth()+101).slice(1)+"-"+String(new Date().getDate()+100).slice(1);
