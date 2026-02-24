@@ -1,7 +1,13 @@
 import {
   useState
 } from "react";
-import Form from "./components/Form";
+import Complite from "./components/Complite.js"
+import Form from "./components/Form.js"
+import header from "./components/header.js"
+import Login from "./components/login.js"
+import Preview from "./components/preview.js"
+import Reback from "./components/reback.js"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [userInf, setUserInf] = useState({
@@ -20,10 +26,15 @@ function App() {
     "file": "",//ファイル
   })
   return (
-    <div>
-      
-    </div>
-
+    <BrowserRouter>
+      <Routes>
+        <Route path="/Login" element={<Login/>}/>
+        <Route path="/From" element={<Form/>}/>
+        <Route path="/Preview" element={<Preview/>}/>
+        <Route path="/Conplite" element={<Complite/>}/>
+        <Route path="/Reback" element={<Reback/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
