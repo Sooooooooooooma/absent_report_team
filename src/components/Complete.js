@@ -1,12 +1,20 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import Header from './header';
 
-const complete = () => {
+const Complete = () => {
+  const navigate = useNavigate();
+  
   return (
-    <div>
-      <button className='logout_btn'>ログアウト</button>
-      <button className="">確認</button>
-    </div>
+    <>
+      <Header/>
+      <div>
+        <h2>送信が完了しました</h2>
+        <button className='logout_btn' onClick={()=>navigate('/Login')}>ログアウト</button>
+        <button className="" onClick={()=>navigate("/Reback")}>履歴</button>
+      </div>
+    </>
   )
 }
 
-export default complete
+export default Complete

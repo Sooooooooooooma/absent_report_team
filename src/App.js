@@ -31,7 +31,7 @@ function App() {
         <Route path="/Login" element={<Login/>}/>
         <Route path="/Form" element={<Form/>}/>
         <Route path="/Preview" element={<Preview/>}/>
-        <Route path="/Conplite" element={<Complete/>}/>
+        <Route path="/Complete" element={<Complete/>}/>
         <Route path="/Reback" element={<Reback/>}/>
       </Routes>
     </BrowserRouter>
