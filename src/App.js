@@ -30,7 +30,7 @@ function App() {
       <Routes>
         <Route path="/Login" element={<Login/>}/>
         <Route path="/Form" element={<Form/>}/>
-        <Route path="/Preview" element={<Preview/>}/>
+        <Route path="/Preview" element={<Preview userInf={userInf} absentForm={absentForm}/>}/>
         <Route path="/Complete" element={<Complete/>}/>
         <Route path="/Reback" element={<Reback/>}/>
       </Routes>
