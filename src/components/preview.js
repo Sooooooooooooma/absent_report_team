@@ -11,6 +11,7 @@ function Preview({ userInf, absentForm }) {
       <Header />
       <div>
         <p>{text}</p>
+        <img src={absentForm.file} alt='画像が読み込めません'/>
         <button className='submit'>送信</button>
       </div>
     </>
