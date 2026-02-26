@@ -7,13 +7,20 @@ import header from "./components/header.js"
 import Login from "./components/login.js"
 import Preview from "./components/preview.js"
 import Reback from "./components/rebeck.js"
+import Myself from "./components/myself.js"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [userInf, setUserInf] = useState({
-    "stNum": "",
-    "stName": "",
+    "stNum": "", //学籍番号
+    "stName": "", //名前
   })
+
+  //子からデータを受け取る関数
+  const catchUser=(data)=>{
+    setUserInf(data);
+    // console.log(data)
+  };
 
   const [absentForm, setAbsentForm] = useState({
     "date": "",  //日にち
@@ -24,15 +31,20 @@ function App() {
     "reason": "",//理由
     "isAttend": "",//遅刻or欠席
     "file": "",//ファイル
+
+
   })
+
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/Login" element={<Login/>}/>
-        <Route path="/Form" element={<Form/>}/>
+        <Route path="/Login" element={<Login catchUser={catchUser}/>}/>
+        <Route path="/Form" element={<Form userInf={userInf}/>}/>
         <Route path="/Preview" element={<Preview/>}/>
         <Route path="/Conplite" element={<Complete/>}/>
         <Route path="/Reback" element={<Reback/>}/>
+        <Route path="/Myself" element={<Myself userInf={userInf}/>}/>
       </Routes>
     </BrowserRouter>
   );
