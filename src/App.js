@@ -1,12 +1,30 @@
+
+
 import {
   useState
 } from "react";
+import Complete from "./components/Complete.js"
+import Form from "./components/Form.js"
+import Header from "./components/header.js"
+import Login from "./components/login.js"
+import Preview from "./components/preview.js"
+import Reback from "./components/rebeck.js"
+import Myself from "./components/myself.js"
+import Introduce from "./components/Introduce.js";
+import E_mail from "./components/e_mail.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [userInf, setUserInf] = useState({
-    "stNum": "",
-    "stName": "",
+    "stNum": "", //学籍番号
+    "stName": "", //名前
   })
+
+  //子からデータを受け取る関数
+  const catchUser=(data)=>{
+    setUserInf(data);
+    // console.log(data)
+  };
 
   const [absentForm, setAbsentForm] = useState({
     "date": "",  //日にち
@@ -17,84 +35,26 @@ function App() {
     "reason": "",//理由
     "isAttend": "",//遅刻or欠席
     "file": "",//ファイル
+
+
   })
-
-  // フォーム入力処理
-  const handleFormChange = (e) => {
-    const { name, value, files } = e.target;
-
-    setAbsentForm({
-      ...absentForm,
-      [name]: files ? files[0] : value,
-    });
-  };
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const isEmpty = Object.values(absentForm).some(
-      (value) => value === "" || value === null
-    );
-
-    if (isEmpty) {
-      alert("すべての項目を入力してください！");
-      return;
-    }
-
-    console.log("送信データ:", absentForm);
-  };
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="date" name="date" required onChange={handleFormChange} />
-
-      <select name="day" required onChange={handleFormChange}>
-        <option value="">曜日</option>
-        <option value="月曜日">月曜日</option>
-        <option value="火曜日">火曜日</option>
-        <option value="水曜日">水曜日</option>
-        <option value="木曜日">木曜日</option>
-        <option value="金曜日">金曜日</option>
-      </select>
-
-      <select name="grade" required onChange={handleFormChange}>
-        <option value="">学年</option>
-        <option value="1">１年生</option>
-        <option value="2">２年生</option>
-        <option value="3">３年生</option>
-        <option value="4">４年生</option>
-      </select>
-
-      <select name="class" required onChange={handleFormChange}>
-        <option value="">何限？</option>
-        <option value="1">1限</option>
-        <option value="2">2限</option>
-        <option value="3">3限</option>
-        <option value="4">4限</option>
-        <option value="5">5限</option>
-        <option value="6">6限</option>
-      </select>
-
-      <input type="text" name="subject" placeholder="教科名" required onChange={handleFormChange} />
-
-      <select name="reason" required onChange={handleFormChange}>
-        <option value="">理由</option>
-        <option value="病欠">病欠</option>
-        <option value="遅延">公共交通機関の遅延</option>
-      </select>
-
-      <select name="isAttend" required onChange={handleFormChange}>
-        <option value="">欠席 or 遅刻？</option>
-        <option value="欠席">欠席</option>
-        <option value="遅刻">遅刻</option>
-      </select>
-
-      <input type="file" name="file" required onChange={handleFormChange} />
-
-      <button type="submit">送信</button>
-    </form>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/Login" element={<Login catchUser={catchUser}/>}/>
+        <Route path="/Form" element={<Form userInf={userInf}/>}/>
+        <Route path="/Preview" element={<Preview userInf={userInf} absentForm={absentForm}/>}/>
+        <Route path="/Conplite" element={<Complete/>}/>
+        <Route path="/Reback" element={<Reback/>}/>
+        <Route path="/Myself" element={<Myself userInf={userInf}/>}/>
+        <Route path="/Introduce" element={<Introduce/>}/>
+        <Route path="/E_mail" element={<E_mail/>}/>
+        
+        
+      </Routes>
+    </BrowserRouter>
   );
 }
 
