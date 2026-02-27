@@ -45,7 +45,7 @@ function App() {
       <Routes>
         <Route path="/Login" element={<Login catchUser={catchUser}/>}/>
         <Route path="/Form" element={<Form userInf={userInf}/>}/>
-        <Route path="/Preview" element={<Preview/>}/>
+        <Route path="/Preview" element={<Preview userInf={userInf} absentForm={absentForm}/>}/>
         <Route path="/Conplite" element={<Complete/>}/>
         <Route path="/Reback" element={<Reback/>}/>
         <Route path="/Myself" element={<Myself userInf={userInf}/>}/>
