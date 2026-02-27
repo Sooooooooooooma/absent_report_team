@@ -6,10 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Introduce = () => {
+    const navigate=useNavigate();
 
 
     const test1 =()=>{
-        navigator("/Form");
+        navigate("/Form");
     }
 
   return (
