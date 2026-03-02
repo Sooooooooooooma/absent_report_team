@@ -1,80 +1,142 @@
-import React, { useEffect, useState } from 'react'
-import curriculum from '../curriculum.json'
+// import React, { useEffect, useState } from 'react'
+// import curriculum from '../curriculum.json'
 
-// フォーム入力処理
-const handleFormChange = (e) => {
+// // フォーム入力処理
+// const handleFormChange = (e) => {
+//     const { name, value, files } = e.target;
+
+//     setAbsentForm({
+//         ...absentForm,
+//         [name]: files ? files[0] : value,
+//     });
+// };
+
+
+// const handleSubmit = (e) => {
+//     e.preventDefault();
+
+//     const isEmpty = Object.values(absentForm).some(
+//         (value) => value === "" || value === null
+//     );
+
+//     if (isEmpty) {
+//         alert("すべての項目を入力してください！");
+//         return;
+//     }
+
+
+//     return (
+//         <form onSubmit={handleSubmit}>
+//             <input type="date" name="date" required onChange={handleFormChange} />
+
+//             <select name="day" required onChange={handleFormChange}>
+//                 <option value="">曜日</option>
+//                 <option value="月曜日">月曜日</option>
+//                 <option value="火曜日">火曜日</option>
+//                 <option value="水曜日">水曜日</option>
+//                 <option value="木曜日">木曜日</option>
+//                 <option value="金曜日">金曜日</option>
+//             </select>
+
+//             <select name="grade" required onChange={handleFormChange}>
+//                 <option value="">学年</option>
+//                 <option value="1">１年生</option>
+//                 <option value="2">２年生</option>
+//                 <option value="3">３年生</option>
+//                 <option value="4">４年生</option>
+//             </select>
+
+//             <select name="class" required onChange={handleFormChange}>
+//                 <option value="">何限？</option>
+//                 <option value="1">1限</option>
+//                 <option value="2">2限</option>
+//                 <option value="3">3限</option>
+//                 <option value="4">4限</option>
+//                 <option value="5">5限</option>
+//                 <option value="6">6限</option>
+//             </select>
+
+//             <input type="text" name="subject" placeholder="教科名" required onChange={handleFormChange} />
+
+//             <select name="reason" required onChange={handleFormChange}>
+//                 <option value="">理由</option>
+//                 <option value="病欠">病欠</option>
+//                 <option value="遅延">公共交通機関の遅延</option>
+//             </select>
+
+//             <select name="isAttend" required onChange={handleFormChange}>
+//                 <option value="">欠席 or 遅刻？</option>
+//                 <option value="欠席">欠席</option>
+//                 <option value="遅刻">遅刻</option>
+//             </select>
+
+//             <input type="file" name="file" required onChange={handleFormChange} />
+
+//             <button type="submit">送信</button>
+//         </form>
+//     )
+// }
+
+// export default Form
+
+
+
+import React, { useState } from "react";
+
+const Form = () => {
+  const [absentForm, setAbsentForm] = useState({
+    date: "",
+    day: "",
+    grade: "",
+    class: "",
+    subject: "",
+    reason: "",
+    isAttend: "",
+    file: null,
+  });
+
+  // フォーム入力処理
+  const handleFormChange = (e) => {
     const { name, value, files } = e.target;
 
     setAbsentForm({
-        ...absentForm,
-        [name]: files ? files[0] : value,
+      ...absentForm,
+      [name]: files ? files[0] : value,
     });
-};
+  };
 
-
-const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const isEmpty = Object.values(absentForm).some(
-        (value) => value === "" || value === null
+      (value) => value === "" || value === null
     );
 
     if (isEmpty) {
-        alert("すべての項目を入力してください！");
-        return;
+      alert("すべての項目を入力してください！");
+      return;
     }
 
+    console.log(absentForm);
+    alert("送信完了！");
+  };
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <input type="date" name="date" required onChange={handleFormChange} />
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="date" name="date" required onChange={handleFormChange} />
 
-            <select name="day" required onChange={handleFormChange}>
-                <option value="">曜日</option>
-                <option value="月曜日">月曜日</option>
-                <option value="火曜日">火曜日</option>
-                <option value="水曜日">水曜日</option>
-                <option value="木曜日">木曜日</option>
-                <option value="金曜日">金曜日</option>
-            </select>
+      <select name="day" required onChange={handleFormChange}>
+        <option value="">曜日</option>
+        <option value="月曜日">月曜日</option>
+        <option value="火曜日">火曜日</option>
+        <option value="水曜日">水曜日</option>
+        <option value="木曜日">木曜日</option>
+        <option value="金曜日">金曜日</option>
+      </select>
 
-            <select name="grade" required onChange={handleFormChange}>
-                <option value="">学年</option>
-                <option value="1">１年生</option>
-                <option value="2">２年生</option>
-                <option value="3">３年生</option>
-                <option value="4">４年生</option>
-            </select>
+      <button type="submit">送信</button>
+    </form>
+  );
+};
 
-            <select name="class" required onChange={handleFormChange}>
-                <option value="">何限？</option>
-                <option value="1">1限</option>
-                <option value="2">2限</option>
-                <option value="3">3限</option>
-                <option value="4">4限</option>
-                <option value="5">5限</option>
-                <option value="6">6限</option>
-            </select>
-
-            <input type="text" name="subject" placeholder="教科名" required onChange={handleFormChange} />
-
-            <select name="reason" required onChange={handleFormChange}>
-                <option value="">理由</option>
-                <option value="病欠">病欠</option>
-                <option value="遅延">公共交通機関の遅延</option>
-            </select>
-
-            <select name="isAttend" required onChange={handleFormChange}>
-                <option value="">欠席 or 遅刻？</option>
-                <option value="欠席">欠席</option>
-                <option value="遅刻">遅刻</option>
-            </select>
-
-            <input type="file" name="file" required onChange={handleFormChange} />
-
-            <button type="submit">送信</button>
-        </form>
-    )
-}
-
-export default Form
+export default Form;
