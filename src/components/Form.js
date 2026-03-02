@@ -1,32 +1,44 @@
 import React, { useEffect, useState } from 'react'
+import Header from './header'
+import "./Form.css"
+import { useNavigate } from 'react-router-dom';
 import curriculum from '../curriculum.json'
 
-// フォーム入力処理
-const handleFormChange = (e) => {
-    const { name, value, files } = e.target;
 
-    setAbsentForm({
-        ...absentForm,
-        [name]: files ? files[0] : value,
-    });
-};
+function Form({userInf,absentForm,setAbsentForm}) {
+    const navigate = useNavigate();
+    
+    // フォーム入力処理
+    const handleFormChange = (e) => {
+        const { name, value, files } = e.target;
+
+        setAbsentForm({
+            ...absentForm,
+            [name]: files ? files[0] : value,
+        });
+    };
 
 
-const handleSubmit = (e) => {
-    e.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-    const isEmpty = Object.values(absentForm).some(
-        (value) => value === "" || value === null
-    );
+        const isEmpty = Object.values(absentForm).some(
+            (value) => value === "" || value === null
+        );
 
-    if (isEmpty) {
-        alert("すべての項目を入力してください！");
-        return;
-    }
+        if (isEmpty) {
+            alert("すべての項目を入力してください！");
+            return;
+        }
+        console.log("Form",absentForm);
+        navigate("/preview");
+    };
+
 
 
     return (
         <form onSubmit={handleSubmit}>
+            <Header/>
             <input type="date" name="date" required onChange={handleFormChange} />
 
             <select name="day" required onChange={handleFormChange}>
@@ -70,11 +82,12 @@ const handleSubmit = (e) => {
                 <option value="遅刻">遅刻</option>
             </select>
 
-            <input type="file" name="file" required onChange={handleFormChange} />
+           <input type="file" name="file" required onChange={handleFormChange} />   {/* FileReader */}
 
             <button type="submit">送信</button>
         </form>
     )
+
 }
 
 export default Form
