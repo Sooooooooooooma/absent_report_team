@@ -16,8 +16,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [userInf, setUserInf] = useState({
-    "stNum": "", //学籍番号
-    "stName": "", //名前
+    "stNum": "202020123", //学籍番号
+    "stName": "テストデータ", //名前
   })
 
   //子からデータを受け取る関数
@@ -27,13 +27,13 @@ function App() {
   };
 
   const [absentForm, setAbsentForm] = useState({
-    "date": "",  //日にち
+    "date": "2026-03-24",  //日にち
     "day": "",  //曜日
     "grade":"", //学年
     "class":"", //何限？？？？？
-    "subject": "",//教科
-    "reason": "",//理由
-    "isAttend": "",//遅刻or欠席
+    "subject": "プログラミング演習",//教科
+    "reason": "交通機関の遅延",//理由
+    "isAttend": "欠席",//遅刻or欠席
     "file": "",//ファイル
 
 
