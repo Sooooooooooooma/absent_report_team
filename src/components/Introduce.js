@@ -10,7 +10,7 @@ const Introduce = () => {
 
 
     const test1 =()=>{
-        navigate("/Form");
+        navigate("/e_mail");
     }
 
   return (
