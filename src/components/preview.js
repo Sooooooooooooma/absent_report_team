@@ -17,6 +17,7 @@ function Preview({ userInf, absentForm }) {
         method: "POST",
         body: JSON.stringify({
           body: text,
+          address:teData.eMail,
           base64: absentForm.file
         })
       });
