@@ -31,7 +31,7 @@ function App() {
     "day": "",  //曜日
     "grade":"", //学年
     "class":"", //何限？？？？？
-    "subject": "プログラミング演習",//教科
+    "subject": "離散数学",//教科
     "reason": "交通機関の遅延",//理由
     "isAttend": "欠席",//遅刻or欠席
     "file": "",//ファイル
