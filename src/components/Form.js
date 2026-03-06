@@ -35,9 +35,7 @@ function Form({userInf,absentForm,setAbsentForm}) {
     };
 
 
-    console.log(absentForm);
-    alert("送信完了！");
-  };
+  
 
     return (
         <form onSubmit={handleSubmit}>
@@ -46,11 +44,11 @@ function Form({userInf,absentForm,setAbsentForm}) {
 
             <select name="day" required onChange={handleFormChange}>
                 <option value="">曜日</option>
-                <option value="月曜日">月曜日</option>
-                <option value="火曜日">火曜日</option>
-                <option value="水曜日">水曜日</option>
-                <option value="木曜日">木曜日</option>
-                <option value="金曜日">金曜日</option>
+                <option value="Mon">月曜日</option>
+                <option value="Tue">火曜日</option>
+                <option value="Wed">水曜日</option>
+                <option value="Thu">木曜日</option>
+                <option value="Fri">金曜日</option>
             </select>
 
             <select name="grade" required onChange={handleFormChange}>
