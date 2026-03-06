@@ -14,7 +14,7 @@ function Form({userInf,absentForm,setAbsentForm}) {
 
         setAbsentForm({
             ...absentForm,
-            [name]: files ? files[0] : value,
+            [name]: files && files.length > 0 ? files[0] : value,
         });
     };
 
