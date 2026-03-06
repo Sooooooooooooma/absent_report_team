@@ -35,6 +35,9 @@ function Form({userInf,absentForm,setAbsentForm}) {
     };
 
 
+    console.log(absentForm);
+    alert("送信完了！");
+  };
 
     return (
         <form onSubmit={handleSubmit}>
@@ -90,4 +93,4 @@ function Form({userInf,absentForm,setAbsentForm}) {
 
 }
 
-export default Form
+export default Form;
