@@ -52,7 +52,7 @@ function Hamburger(){
             <li onClick={information}>アカウント</li>
             <li onClick={introduce}>このアプリについて</li>
             <li onClick={history}>履歴</li>
-            <li onClick={closeMenu}>close</li>
+            {/* <li onClick={closeMenu}>close</li> */}
             <li onClick={logout}>ログアウト</li>
 
         </ul>
